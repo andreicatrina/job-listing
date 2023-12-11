@@ -1,0 +1,27 @@
+body {
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+:root {
+  --lightGrayCyan: hsl(180, 52%, 96%);
+  --lightGrayCyan2: hsl(180, 31%, 95%);
+  --darkGrayCyan: hsl(180, 8%, 52%);
+  --veryDarkGrayCyan: hsl(180, 14%, 20%);
+
+  --primary: hsl(180, 29%, 50%);
+}
+
+p,
+span,
+h3,
+h2,
+h1,
+button,
+a,
+div,
+input {
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  padding: 0;
+}
