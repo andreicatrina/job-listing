@@ -30,7 +30,6 @@ import img from "../../assets/manage.svg";
 export const Landing = () => {
   const [searchBar, setSearchBar] = useState(false);
   const [searchInput, setSearchInput] = useState();
-  const [abc, setAbc] = useState(data);
 
   function onClickSearchBar() {
     if (searchBar === false) {
@@ -164,3 +163,16 @@ export const Landing = () => {
     </LandingSection>
   );
 };
+
+// function filteringLanguages() {
+//   let filtered = data.map((job) => {
+//     for (let i = 0; i < job.languages.lenght; i++) {
+//       if (data.languages[i].toLowerCase() === "HTML") {
+//         console.log(data.languages[i]);
+//         return data.languages[i];
+//       }
+//     }
+//   });
+//   console.log(filtered);
+// }
+// filteringLanguages();
