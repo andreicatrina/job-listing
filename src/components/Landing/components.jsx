@@ -29,6 +29,12 @@ export const LandingContainer = styled.div`
   position: relative;
 `;
 
+export const ParentJob = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
 export const JobContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -123,6 +129,7 @@ export const SearchContainer = styled.div`
   max-width: ${(props) => props.maxWidth};
   border-radius: 4px;
   border-bottom: 2px solid var(--primary);
+  background-color: white;
 
   input {
     /* border: 1px solid black; */
@@ -131,7 +138,17 @@ export const SearchContainer = styled.div`
     width: 100%;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
   }
+`;
+
+export const ClearSpan = styled.span`
+  display: ${(props) => props.display};
+  font-size: 16px;
+  font-weight: 600;
+  padding-right: 4px;
+  cursor: pointer;
 `;
 
 export const SearchIconContainer = styled.div`
@@ -141,7 +158,7 @@ export const SearchIconContainer = styled.div`
   /* border: 1px solid black; */
   border: none;
   height: 36px;
-  width: 40px;
+  width: ${(props) => props.width};
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   padding: 2px;
