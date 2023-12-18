@@ -40,7 +40,7 @@ export const JobContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  padding: 12px 24px;
+
   border-radius: 8px;
   padding: 24px;
   cursor: pointer;
@@ -52,6 +52,7 @@ export const JobContainer = styled.div`
 
   &:hover {
     border-left: 4px solid var(--primary);
+    padding: 24px 28px 24px 28px;
   }
 `;
 
@@ -147,7 +148,7 @@ export const ClearSpan = styled.span`
   display: ${(props) => props.display};
   font-size: 16px;
   font-weight: 600;
-  padding-right: 4px;
+  padding-left: 4px;
   cursor: pointer;
 `;
 

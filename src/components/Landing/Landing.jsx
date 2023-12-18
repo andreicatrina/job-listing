@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useRef } from "react";
 
 import data from "../../utils/data.json";
 
@@ -29,7 +29,10 @@ import img from "../../assets/manage.svg";
 
 export const Landing = () => {
   const [searchBar, setSearchBar] = useState(false);
-  const [searchInput, setSearchInput] = useState();
+  const [searchInput, setSearchInput] = useState("");
+  const [language, setLanguage] = useState();
+
+  const spanElement = useRef();
 
   function onClickSearchBar() {
     if (searchBar === false) {
@@ -44,6 +47,15 @@ export const Landing = () => {
     setSearchInput(e.currentTarget.value);
   }
 
+  function onClickClearSearch() {
+    setSearchInput("");
+  }
+
+  function onClickSetRoleChange() {
+    setSearchInput(spanElement.current.innerText);
+    console.log(spanElement.current.innerText);
+  }
+
   return (
     <LandingSection>
       <HeaderSection>
@@ -51,7 +63,10 @@ export const Landing = () => {
       </HeaderSection>
       <LandingContainer>
         <SearchContainer maxWidth={searchBar ? "600px" : "0px"}>
-          <input onChange={onChangeSearch} type="search" />
+          <input onChange={onChangeSearch} type="search" value={searchInput.toLowerCase()} />
+          <ClearSpan onClick={onClickClearSearch} display={searchBar ? "flex" : "none"}>
+            Clear
+          </ClearSpan>
           <SearchIconContainer
             onClick={onClickSearchBar}
             background={searchBar ? "white" : "none"}
@@ -59,7 +74,6 @@ export const Landing = () => {
           >
             {searchBar ? <FaRegWindowClose /> : <FaSearch />}
           </SearchIconContainer>
-          <ClearSpan display={searchBar ? "flex" : "none"}>Clear</ClearSpan>
         </SearchContainer>
         {!searchInput ? (
           <ParentJob>
@@ -81,11 +95,13 @@ export const Landing = () => {
                     </JobDetailsContainer>
                   </CompanyOfferContainer>
                   <JobTechStackContainer>
-                    <span>{job.role}</span>
+                    <span onClick={onClickSetRoleChange} ref={spanElement}>
+                      {job.role}
+                    </span>
                     {job.languages.map((language) => {
                       return (
                         <div>
-                          <span>{language}</span>
+                          <span onClick={onClickSetRoleChange}>{language}</span>
                         </div>
                       );
                     })}
